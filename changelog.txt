@@ -1,0 +1,18 @@
+= 1.0.3 - 18 June 2026  =
+* Added: Top bar extras — quick links (Privacy Policy, FAQ's, Contact Us, About Us, Location, Terms of Use) and social media handles shown on the right of the top bar.
+* Added: "Top Bar Quick Links" menu location to manage the top bar links from Appearance → Menus.
+* Added: Auto-created Privacy Policy, FAQ's, Contact Us, About Us, Location and Terms of Use pages with dynamic content (live site name, contact email, last-updated date, post/category/author counts, address & map, editable FAQ list).
+* Added: Dynamic content shortcodes ([blogsy_news_site_name], [blogsy_news_email], [blogsy_news_year], [blogsy_news_updated], [blogsy_news_stats], [blogsy_news_faq], [blogsy_news_contact], [blogsy_news_location]) and a built-in contact form (wp_mail).
+
+= 1.0.2 - 16 June 2026  =
+* Added: Custom multi-column dark footer with brand/about, quick links, categories, newsletter signup and social icons.
+* Added: Footer menu locations (Footer Quick Links, Footer Bottom Bar) and a back-to-top button.
+* Added: Adsterra ads integration with a dedicated admin page (Adsterra Ads), placement zones, [adsterra] shortcode and a sidebar widget.
+* Improved: General design polish — button micro-interactions, hero/carousel hover states, refined scrollbar and selection colors.
+
+= 1.0.1 - 22 May 2026  =
+* Fixed: Category and tag selection for Hero in customizer.
+* Fixed: Style issues.
+
+= 1.0.0 - 18 May 2026  =
+* Initial release 🚀

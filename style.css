@@ -1,0 +1,1529 @@
+/*
+Theme Name: Blogsy News
+Template: blogsy
+Author: Peregrine Themes
+Author URI: https://peregrine-themes.com/
+Theme URI: https://peregrine-themes.com/blogsy/
+Description: Blogsy News is a modern, high-performance WordPress theme designed for bloggers, news publishers, and content creators who demand style and flexibility. Effortlessly shape your site with built-in support for the powerful Gutenberg block editor, ready-made block patterns, and seamless Elementor integration. Choose from multiple header styles, flexible layouts (left, right, or no sidebar), and eye-catching grid or masonry blog designs to make your content shine. Enjoy dark mode, unique sidebar widget patterns, and an array of customization options to create a site that matches your vision. Fully compatible with WooCommerce for building online stores and lighting-fast for the best user experience. With Blogsy news, launching a beautiful, professional website has never been easier, import demo content in just one click and start publishing today. Live preview: https://demo.peregrine-themes.com/blogsy/blogsy-news/
+Version: 1.0.3
+Requires at least: 6.6
+Tested up to: 7.0
+Requires PHP: 7.4
+License: GNU General Public License v2+
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: blogsy-news
+Tags: one-column, two-columns, right-sidebar, left-sidebar, grid-layout, footer-widgets, blog, news, e-commerce, custom-menu, custom-logo, post-formats, sticky-post, editor-style, threaded-comments, translation-ready, custom-colors, featured-images, full-width-template, rtl-language-support, theme-options, wide-blocks, block-styles, block-patterns
+
+All files, unless otherwise stated, are released under the GNU General Public
+License version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
+
+Do not add your CSS to this file, use a child theme instead: https://codex.wordpress.org/Child_Themes
+The main CSS file is loaded from "assets/css folder".
+*/
+
+.pt-shape--sharp {
+	--pt-soft-radius: 0;
+}
+
+.pt-shape--sharp .blogsy-pyml .swiper-pagination-fraction,
+.pt-shape--sharp .pt-hero-slider .carousel-nav-prev,
+.pt-shape--sharp .pt-hero-slider .carousel-nav-next,
+.pt-shape--sharp .blogsy-pyml .carousel-nav-prev,
+.pt-shape--sharp .blogsy-pyml .carousel-nav-next {
+	border-radius: 0;
+}
+
+.pt-shape--sharp .blogsy-news-ticker-btn {
+	border-radius: 50px;
+}
+
+
+/* Post Elastic
+-------------------------------------------------------------- */
+
+.blogsy-post-elastic-widget {
+	width: 100%;
+}
+
+.blogsy-post-elastic-widget .post-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    border-color: var(--term-color, var(--pt-accent-color));
+    transition: 0.3s;
+}
+
+.blogsy-post-elastic-widget .post-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+}
+
+.blogsy-post-elastic-widget .post-wrapper.mini-layout .post-inner {
+    gap: 16px;
+}
+
+.blogsy-post-elastic-widget .post-wrapper .image-outer-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    width: 250px;
+}
+
+.blogsy-post-elastic-widget .post-wrapper.mini-layout .image-outer-wrapper {
+    width: 95px;
+}
+
+.blogsy-post-elastic-widget .post-wrapper.mini-layout .image-outer-wrapper {
+    height: 95px;
+}
+
+.blogsy-post-elastic-widget .post-wrapper.mini-layout .image-outer-wrapper .image-wrapper {
+    background-color: rgba(25,25,29,.45);
+}
+
+.blogsy-post-elastic-widget .post-wrapper .image-wrapper {
+    border-radius: var(--pt-soft-radius);
+    display: flex;
+    position: relative;
+    overflow: hidden;
+	transform: translate(0, 0);
+	will-change: transform;
+    transition: 0.8s;
+    width: 100%;
+    height: 100%;
+}
+
+.blogsy-post-elastic-widget .post-wrapper .image-wrapper::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    border-radius: inherit;
+    background: transparent;
+    transition: 0.8s;
+}
+
+.blogsy-post-elastic-widget .post-wrapper .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+    transition: 0.8s;
+}
+
+.blogsy-post-elastic-widget .image-wrapper:hover > img {
+    transform: scale(1.15);
+}
+
+.blogsy-post-elastic-widget .image-wrapper.has-animation > img {
+    transform-origin: right;
+}
+
+.blogsy-post-elastic-widget .image-wrapper.has-animation:hover > img {
+    filter: blur(8px);
+    opacity: 0;
+    transform: scaleX(1.5);
+}
+
+.blogsy-post-elastic-widget .post-wrapper .image-animation {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.blogsy-post-elastic-widget .image-animation img {
+    transform-origin: left;
+    filter: blur(8px);
+    opacity: 0;
+    transform: scaleX(1.5);
+}
+
+.blogsy-post-elastic-widget .image-wrapper:hover .image-animation > img {
+    filter: blur(0);
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.blogsy-post-elastic-widget .post-wrapper .image-wrapper a {
+    border-radius: inherit;
+	z-index: 10;
+}
+
+.blogsy-post-elastic-widget .post-wrapper .content-wrapper {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.blogsy-post-elastic-widget  {
+    counter-reset: post-num;
+}
+
+.blogsy-post-elastic-widget .post-counter-wrap {
+    z-index: 20;
+}
+
+.blogsy-post-elastic-widget .post-wrapper.mini-layout .footer-wrap {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 5px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.blogsy-post-elastic-widget .post-wrapper > .footer-wrap {
+    margin-top: 30px;
+}
+
+
+/*****************************************/
+/* Header layout 4
+/*****************************************/
+
+.pt-header-layout-4 .pt-header-inner {
+	padding: 0;
+	background-color: transparent;
+	box-shadow: none;
+}
+
+.pt-header-layout-4 .pt-logo-container .pt-header-container,
+.pt-header-layout-4 .pt-nav-container .pt-header-container {
+    position: relative;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.pt-header-layout-4 .pt-logo-container .pt-header-element {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.33%;
+    flex: 0 0 33.33%;
+}
+
+.pt-header-layout-4 .pt-logo-container .pt-logo {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+    margin: 0 auto;
+    padding: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.pt-header-layout-4 .pt-logo-container .pt-logo>.logo-inner {
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.pt-header-layout-4 .pt-logo-container .blogsy-widget-location-left {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+    margin-left: 0;
+    margin-right: auto;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+}
+
+.pt-header-layout-4 .pt-logo-container .blogsy-widget-location-left .pt-header-widget:first-child {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.pt-header-layout-4 .pt-logo-container .blogsy-widget-location-right .pt-header-widget:last-of-type,
+.pt-header-layout-4 .pt-logo-container .blogsy-widget-location-left .pt-header-widget:last-of-type {
+    padding-right: 0;
+}
+
+.pt-header-layout-4 .pt-logo-container .blogsy-widget-location-right .pt-header-widget:last-of-type:after,
+.pt-header-layout-4 .pt-logo-container .blogsy-widget-location-left .pt-header-widget:last-of-type:after {
+    display: none;
+}
+
+.pt-header-layout-4 .pt-logo-container .blogsy-widget-location-right {
+    -webkit-box-ordinal-group: 4;
+    -ms-flex-order: 3;
+    order: 3;
+    margin-right: 0;
+    margin-left: auto;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.pt-header-layout-4 .blogsy-widget-wrapper {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.pt-header-layout-4 .pt-mobile-nav {
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+}
+
+.pt-header-layout-4 .pt-nav-container {
+    position: relative;
+    margin-bottom: -.1rem;
+}
+
+.pt-header-layout-4 .pt-header .pt-header-inner .pt-logo-container .pt-header-container,
+.pt-header-layout-4 .pt-header .pt-header-inner .pt-nav-container .pt-header-container {
+    border-width: 0;
+}
+
+.pt-header-layout-4 .pt-nav-container .pt-header-element {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+}
+
+.pt-header-layout-4 .pt-nav-container .blogsy-header-nav-wrapper {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+    margin: 0 auto;
+    padding: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.pt-header-layout-4 .pt-nav-container .blogsy-header-nav-wrapper>ul {
+    min-height: 6rem;
+}
+
+.pt-header-layout-4 .pt-nav-container .blogsy-header-nav-wrapper>ul>li:not(:first-child) {
+    margin-left: 1.6rem;
+}
+
+.pt-header-layout-4 .pt-nav-container .blogsy-header-nav-wrapper>ul>li>a {
+	height: 100%;
+    padding-top: 1.4rem;
+    padding-bottom: 1.4rem;
+}
+
+.pt-header-layout-4 .pt-nav-container .blogsy-widget-location-left {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+    margin-left: 0;
+    margin-right: auto;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+}
+
+.pt-header-layout-4 .pt-nav-container .blogsy-widget-location-left .pt-header-widget:first-child {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.pt-header-layout-4 .pt-nav-container .blogsy-widget-location-right .pt-header-widget:last-of-type,
+.pt-header-layout-4 .pt-nav-container .blogsy-widget-location-left .pt-header-widget:last-of-type {
+    padding-right: 0;
+}
+
+.pt-header-layout-4 .pt-nav-container .blogsy-widget-location-right .pt-header-widget:last-of-type:after,
+.pt-header-layout-4 .pt-nav-container .blogsy-widget-location-left .pt-header-widget:last-of-type:after {
+    display: none;
+}
+
+.pt-header-layout-4 .pt-nav-container .blogsy-widget-location-right {
+    -webkit-box-ordinal-group: 4;
+    -ms-flex-order: 3;
+    order: 3;
+    margin-right: 0;
+    margin-left: auto;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 1024px) {
+	.pt-header-layout-4 .pt-logo-container .pt-header-container {
+		flex-wrap: wrap;
+	}
+
+	.pt-header-layout-4 .pt-logo-container .pt-logo>.logo-inner {
+		align-items: start;
+	}
+
+	.pt-header-layout-4 .pt-logo-container .pt-header-element {
+		flex-basis: auto;
+	}
+
+	.pt-header-layout-4 .pt-logo-container .pt-logo {
+		order: 0;
+		justify-content: start;
+		align-items: start;
+		flex-basis: auto;
+		margin-left: 0;
+	}
+
+	.pt-header-layout-4 .pt-logo-container .pt-mobile-nav {
+		order: 5;
+	}
+
+	.pt-header-layout-4 .pt-logo-container .blogsy-widget-location-right {
+		-js-display: flex;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+	}
+
+	.pt-header-layout-4 .pt-nav-container {
+		display: none;
+	}
+}
+
+
+/* Ticker (Layout 2) */
+
+.blogsy-ticker.layout-2 {
+    border-bottom: none;
+    padding-top: 18px;
+    padding-bottom: 0;
+}
+
+.blogsy-ticker.layout-2 .blogsy-news-ticker-wrapper .blogsy-news-ticker-title-wrapper {
+	background-color: transparent;
+    color: var(--pt-accent-color);
+    font-weight: 600;
+    gap: 4px;
+    padding: 0;
+    outline: none;
+}
+
+html[scheme=dark] .blogsy-ticker.layout-2 .blogsy-news-ticker-wrapper .blogsy-news-ticker-title-wrapper {
+	background-color: transparent;
+}
+
+.blogsy-ticker.layout-2 .blogsy-news-ticker-wrapper .blogsy-news-ticker-title-wrapper .blogsy-news-ticker-title-icon-wrapper {
+    color: var(--pt-accent-color);
+}
+
+.blogsy-ticker.layout-2 .blogsy-news-ticker-wrapper .blogsy-news-ticker-title-wrapper .blogsy-news-ticker-title-text {
+    text-transform: uppercase;
+}
+
+.blogsy-ticker.layout-2 .blogsy-news-ticker-btn {
+	padding: 3px 14px 3px 14px;
+	height: 3rem;
+}
+
+.blogsy_news .blogsy-ticker .blogsy-news-ticker-item .item-thumbnail img {
+	border-radius: 0;
+	border: 0;
+}
+
+.pt-header-layout-4 #site-header+#site-sticky-header+#blogsy-ticker+#blogsy-hero,
+.pt-header-layout-4 #site-header+#blogsy-ticker+#blogsy-hero {
+	margin-top: 2rem;
+}
+
+.pt-header-layout-4 #blogsy-hero {
+	margin-top: 0.4rem;
+}
+
+/* Hero two/three */
+
+#blogsy-hero .pt-container.pt-hero-type-two,
+#blogsy-hero .pt-container.pt-hero-type-three {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.pt-hero-slider .carousel-nav-prev,
+.pt-hero-slider .carousel-nav-next,
+.blogsy-pyml .carousel-nav-prev,
+.blogsy-pyml .carousel-nav-next {
+    border-radius: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
+}
+
+.pt-hero-type-three .pt-hero-slider .post-wrapper,
+.pt-hero-type-two .pt-hero-slider .post-wrapper {
+	border-radius: 0;
+}
+
+.pt-hero-type-three .pt-hero-slider .post-wrapper,
+.pt-hero-type-two .pt-hero-slider .post-wrapper {
+    height: 560px;
+    border-radius: 0px 0px 0px 0px;
+}
+
+.pt-hero-type-three .pt-hero-slider .terms-wrapper,
+.pt-hero-type-two .pt-hero-slider .terms-wrapper {
+    position: relative;
+    left: 0;
+}
+
+.pt-hero-type-three .pt-hero-slider .post-wrapper .meta-wrapper,
+.pt-hero-type-two .pt-hero-slider .post-wrapper .meta-wrapper {
+    gap: 1rem;
+}
+
+.pt-hero-type-two .pt-hero-slider .carousel-nav-prev {
+    left: -52px;
+}
+
+.pt-hero-type-two .pt-hero-slider .carousel-nav-next {
+    right: 10px;
+}
+
+.pt-hero-type-three .pt-hero-slider .carousel-pagination-wrapper.type-bullets .carousel-pagination,
+.pt-hero-type-two .pt-hero-slider .carousel-pagination-wrapper.type-bullets .carousel-pagination {
+    bottom: 0;
+    left: -29px;
+}
+
+.pt-hero-type-three .blogsy-post-elastic-widget .blogsy-posts-wrapper.layout-grid,
+.pt-hero-type-two .blogsy-post-elastic-widget .blogsy-posts-wrapper.layout-grid {
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.pt-hero-type-three .blogsy-post-elastic-widget .post-wrapper,
+.pt-hero-type-two .blogsy-post-elastic-widget .post-wrapper {
+    padding: 0px 0px 16px 0px;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: #7F818540;
+}
+
+.pt-hero-type-two .blogsy-post-elastic-widget .post-wrapper .post-inner {
+    flex-direction: row-reverse;
+}
+
+.pt-hero-type-three .blogsy-post-nexo-widget .post-wrapper,
+.pt-hero-type-three .blogsy-post-elastic-widget .post-wrapper .image-wrapper,
+.pt-hero-type-two .blogsy-post-nexo-widget .post-wrapper,
+.pt-hero-type-two .blogsy-post-elastic-widget .post-wrapper .image-wrapper {
+    border-radius: 0;
+}
+
+.pt-hero-type-three .blogsy-post-nexo-widget.hero-tabs .blogsy-posts-wrapper.layout-grid,
+.pt-hero-type-two .blogsy-post-nexo-widget.hero-editor .blogsy-posts-wrapper.layout-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+#blogsy-hero .post-author-wrapper .author-image img {
+    width: 22px;
+    height: 22px;
+}
+
+#blogsy-hero .post-counter-wrap .post-counter {
+    background-color: var(--pt-accent-color);
+    border-radius: 0;
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    font-size: 14px;
+	font-weight: 600;
+	padding: 5px;
+}
+
+#blogsy-hero .blogsy-post-elastic-widget .swiper-vertical {
+    height: 496px;
+}
+
+#blogsy-hero .pt-hero-type-three .pt-hero-slider .blogsy-position-top-right {
+	top: 3.5rem;
+    right: 2rem;
+}
+
+#blogsy-hero .blogsy-post-elastic-widget .blogsy-position-top-right {
+	top: 1.4rem;
+}
+
+#blogsy-hero .pt-hero-type-three .pt-hero-slider:has(.blogsy-section-heading) .blogsy-position-top-right,
+#blogsy-hero .blogsy-post-elastic-widget:has(.blogsy-section-heading) .blogsy-position-top-right {
+    top: -4rem;
+	right: 0;
+}
+
+#blogsy-hero .pt-hero-type-three .pt-hero-slider .carousel-nav-prev,
+#blogsy-hero .pt-hero-type-three .pt-hero-slider .carousel-nav-next,
+#blogsy-hero .blogsy-post-elastic-widget .carousel-nav-prev,
+#blogsy-hero .blogsy-post-elastic-widget .carousel-nav-next {
+    color: var(--pt-body-color);
+    background-color: var(--pt-card-bg);
+    border-radius: 0;
+    width: 2.7rem;
+    height: 2.7rem;
+    font-size: 1.3rem;
+    text-decoration: none;
+    border: 1px solid var(--pt-border-color);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
+    transition: .25s;
+}
+
+#blogsy-hero .pt-hero-type-three .pt-hero-slider:has(.blogsy-section-heading, .hero-tabs-inner) .carousel-nav-prev,
+#blogsy-hero .blogsy-post-elastic-widget:has(.blogsy-section-heading, .hero-tabs-inner) .carousel-nav-prev {
+    left: -1px;
+}
+
+/* Hero Tabs */
+
+.hero-tabs .hero-tabs-inner {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	margin-bottom: 20px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.hero-tabs .tab-btn {
+	position: relative;
+	cursor: pointer;
+	padding: 0 0 7px;
+	outline: none;
+	border: none;
+	line-height: 1.4;
+	background: transparent;
+	color: #000;
+}
+
+.hero-tabs .tab-btn.active {
+	color: var(--pt-accent-color);
+}
+
+.hero-tabs .tab-btn.active::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: var(--pt-accent-color);
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+}
+
+.hero-tabs .tab-btn h5 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    gap: 5px;
+}
+
+.hero-tabs .tab-btn h5 .blogsy-svg-icon {
+    font-size: 90%;
+}
+
+.tab-content {
+	display: none;
+}
+
+.tab-content.active {
+	display: block;
+}
+
+.hero-tabs .tab-content.active {
+    display: flex;
+    flex-direction: column;
+    column-gap: 16px;
+    row-gap: 16px;
+}
+
+
+/* Style 12 */
+
+.blogsy-divider-heading.divider-style-12 {
+    flex-wrap: wrap;
+    gap: 0;
+	row-gap: 2px;
+    align-items: center;
+}
+
+.blogsy-divider-heading.divider-style-12 .title {
+    width: 100%;
+}
+
+.blogsy-divider-heading.divider-style-12 .divider-1 {
+    order: 11;
+    width: 12px;
+    height: 12px;
+    border-radius: 50px;
+    flex-shrink: 0;
+}
+
+.blogsy-divider-heading.divider-style-12 .divider-2 {
+    order: 12;
+    width: 80px;
+    height: 3px !important;
+}
+
+.blogsy-divider-heading.divider-style-12 .divider-3 {
+    --divider-color-2:  rgba(0, 0, 0, 0.2);
+    background: var(--divider-color-2);
+    width: auto !important;
+    flex-grow: 1;
+    height: 1px !important;
+}
+
+.blogsy-divider-heading.divider-style-12 .divider-4 {
+    display: none;
+}
+
+#blogsy-hero .blogsy-divider-heading.divider-style-12,
+#blogsy-hero .blogsy-divider-heading.divider-style-12 .divider-3 {
+    width: 100%;
+}
+
+/* Section Heading */
+
+.blogsy_news .blogsy-section-heading .blogsy-divider-heading,
+.blogsy_news .blogsy-section-heading .blogsy-divider-heading .title {
+	width: 100%
+}
+
+.blogsy_news .blogsy-section-heading .blogsy-divider-heading {
+	row-gap: 0.7rem
+}
+
+/* Blog Horizontal 2 */
+
+.blog-horizontal-2 .post-wrapper .term-item {
+    padding-left: 1.25rem;
+}
+
+.blog-horizontal-2 .post-wrapper .term-item::before {
+    content: "#";
+    background: transparent;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    margin-top: -0.3px;
+    font-size: 120%;
+    font-weight: 600;
+    color: var(--term-color, var(--pt-accent-color));
+}
+
+.blog-horizontal-2 .post-wrapper .term-item:focus:before,
+.blog-horizontal-2 .post-wrapper .term-item:hover:before {
+	width: auto;
+}
+
+/* PYML */
+
+.blogsy_news #blogsy-pyml .pt-container {
+	max-width: clamp(1400px, 100vw, 93%);
+}
+
+.blogsy_news .blogsy-pyml .carousel-nav-next,
+.blogsy_news .blogsy-pyml .carousel-nav-prev {
+	width: 3.5rem;
+	height: 3.5rem;
+	font-size: 1.5rem;
+	top: -52px;
+}
+
+.blogsy_news .blogsy-pyml .carousel-nav-next {
+	right: 8rem;
+}
+
+.blogsy_news .blogsy-pyml .carousel-nav-prev {
+	left: -10rem;
+}
+
+
+/* ==========================================================================
+   Blogsy News — Design polish, Ads, Footer & Back-to-top  (v1.0.2)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Global polish
+   -------------------------------------------------------------------------- */
+
+html {
+	scroll-behavior: smooth;
+}
+
+.blogsy_news ::selection {
+	background: var(--pt-accent-color, #e93314);
+	color: #fff;
+}
+
+/* Refined scrollbar (desktop only). */
+@media screen and (min-width: 1025px) {
+	.blogsy_news::-webkit-scrollbar {
+		width: 11px;
+		height: 11px;
+	}
+
+	.blogsy_news::-webkit-scrollbar-track {
+		background: rgba(0, 0, 0, 0.05);
+	}
+
+	.blogsy_news::-webkit-scrollbar-thumb {
+		background: rgba(0, 0, 0, 0.22);
+		border-radius: 10px;
+		border: 2px solid transparent;
+		background-clip: padding-box;
+	}
+
+	.blogsy_news::-webkit-scrollbar-thumb:hover {
+		background: var(--pt-accent-color, #e93314);
+		background-clip: padding-box;
+	}
+}
+
+/* Smoother button micro-interactions. */
+.blogsy_news .blogsy-btn,
+.blogsy_news .button {
+	transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease, color 0.22s ease;
+}
+
+.blogsy_news .blogsy-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 18px rgba(233, 51, 20, 0.18);
+}
+
+/* Hero / carousel navigation: accent fill on hover. */
+#blogsy-hero .pt-hero-type-three .pt-hero-slider .carousel-nav-prev:hover,
+#blogsy-hero .pt-hero-type-three .pt-hero-slider .carousel-nav-next:hover,
+#blogsy-hero .blogsy-post-elastic-widget .carousel-nav-prev:hover,
+#blogsy-hero .blogsy-post-elastic-widget .carousel-nav-next:hover,
+.blogsy_news .blogsy-pyml .carousel-nav-next:hover,
+.blogsy_news .blogsy-pyml .carousel-nav-prev:hover {
+	background-color: var(--pt-accent-color, #e93314);
+	border-color: var(--pt-accent-color, #e93314);
+	color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   2. Advertisement containers (Adsterra)
+   -------------------------------------------------------------------------- */
+
+.blogsy-ad {
+	margin: 1.6rem auto;
+	max-width: 100%;
+	text-align: center;
+	clear: both;
+}
+
+.blogsy-ad__label {
+	display: block;
+	margin-bottom: 6px;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 1.2px;
+	text-transform: uppercase;
+	color: rgba(0, 0, 0, 0.38);
+}
+
+.blogsy-ad__inner {
+	display: inline-block;
+	max-width: 100%;
+	line-height: 0;
+}
+
+.blogsy-ad__inner img,
+.blogsy-ad__inner iframe {
+	max-width: 100%;
+	height: auto;
+}
+
+.blogsy-ad--top_banner,
+.blogsy-ad--before_footer {
+	margin: 2rem auto;
+	padding: 0 1.5rem;
+}
+
+html[scheme="dark"] .blogsy-ad__label {
+	color: rgba(255, 255, 255, 0.42);
+}
+
+/* --------------------------------------------------------------------------
+   3. Footer
+   -------------------------------------------------------------------------- */
+
+.blogsy-news-footer {
+	--bn-footer-bg: #ffffff;
+	--bn-footer-bg-alt: #f5f6f8;
+	--bn-footer-text: rgba(20, 22, 28, 0.66);
+	--bn-footer-heading: #15151a;
+	--bn-footer-accent: var(--pt-accent-color, #e93314);
+	--bn-footer-border: rgba(20, 22, 28, 0.1);
+	position: relative;
+	margin-top: 4rem;
+	background: var(--bn-footer-bg);
+	color: var(--bn-footer-text);
+	font-size: 14.5px;
+	line-height: 1.6;
+}
+
+.blogsy-news-footer::before {
+	content: "";
+	display: block;
+	height: 3px;
+	background: linear-gradient(90deg, var(--bn-footer-accent), #f84d57 60%, var(--bn-footer-accent));
+}
+
+.blogsy-news-footer a {
+	text-decoration: none;
+}
+
+.blogsy-news-footer__main {
+	padding: 4.5rem 0 2.8rem;
+}
+
+.blogsy-news-footer__grid {
+	display: grid;
+	grid-template-columns: 1.7fr 1fr 1fr 1.5fr;
+	gap: 2.6rem;
+}
+
+/* Brand column */
+.blogsy-news-footer__logo {
+	margin-bottom: 1.2rem;
+}
+
+.blogsy-news-footer__logo img {
+	max-height: 46px;
+	width: auto;
+	height: auto;
+}
+
+.blogsy-news-footer__site-title {
+	color: var(--bn-footer-heading);
+	font-size: 26px;
+	font-weight: 600;
+	line-height: 1.1;
+}
+
+.blogsy-news-footer__about {
+	margin: 0 0 1.5rem;
+	max-width: 38ch;
+}
+
+.blogsy-news-footer__socials {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.blogsy-news-footer__socials a {
+	display: grid;
+	place-items: center;
+	width: 40px;
+	height: 40px;
+	color: var(--bn-footer-heading);
+	background: rgba(20, 22, 28, 0.04);
+	border: 1px solid var(--bn-footer-border);
+	border-radius: var(--pt-soft-radius, 50%);
+	transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.blogsy-news-footer__socials a:hover {
+	color: #fff;
+	background: var(--bn-footer-accent);
+	border-color: var(--bn-footer-accent);
+	transform: translateY(-3px);
+}
+
+/* Headings */
+.blogsy-news-footer__heading {
+	position: relative;
+	margin: 0 0 1.6rem;
+	padding-bottom: 12px;
+	color: var(--bn-footer-heading);
+	font-size: 17px;
+	font-weight: 600;
+	letter-spacing: 0.2px;
+}
+
+.blogsy-news-footer__heading::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 42px;
+	height: 2px;
+	background: var(--bn-footer-accent);
+}
+
+/* Link lists */
+.blogsy-news-footer__menu {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.blogsy-news-footer__menu li {
+	margin-bottom: 11px;
+}
+
+.blogsy-news-footer__menu a {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--bn-footer-text);
+	font-size: 14.5px;
+	transition: color 0.2s ease;
+}
+
+.blogsy-news-footer__menu a::before {
+	content: "\203A";
+	color: var(--bn-footer-accent);
+	font-size: 17px;
+	line-height: 1;
+	opacity: 0.85;
+	transition: transform 0.2s ease;
+}
+
+.blogsy-news-footer__menu a:hover {
+	color: var(--bn-footer-accent);
+}
+
+.blogsy-news-footer__menu a:hover::before {
+	transform: translateX(3px);
+}
+
+.blogsy-news-footer__cats .blogsy-news-footer__menu li {
+	color: rgba(20, 22, 28, 0.45);
+	font-size: 13px;
+}
+
+/* Newsletter */
+.blogsy-news-footer__news-text {
+	margin: 0 0 1.3rem;
+}
+
+.blogsy-news-newsletter__field {
+	display: flex;
+	align-items: stretch;
+}
+
+.blogsy-news-footer .blogsy-news-newsletter__input {
+	flex: 1 1 auto;
+	min-width: 0;
+	padding: 12px 14px;
+	color: var(--bn-footer-heading);
+	font-size: 14px;
+	background: rgba(20, 22, 28, 0.03);
+	border: 1px solid var(--bn-footer-border);
+	border-right: 0;
+	border-radius: var(--pt-soft-radius, 6px) 0 0 var(--pt-soft-radius, 6px);
+	box-shadow: none;
+	transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.blogsy-news-footer .blogsy-news-newsletter__input::placeholder {
+	color: rgba(20, 22, 28, 0.4);
+}
+
+.blogsy-news-footer .blogsy-news-newsletter__input:focus {
+	outline: none;
+	background: #fff;
+	border-color: var(--bn-footer-accent);
+}
+
+.blogsy-news-newsletter__btn {
+	flex: 0 0 auto;
+	padding: 12px 22px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+	white-space: nowrap;
+	cursor: pointer;
+	background: var(--bn-footer-accent);
+	border: 1px solid var(--bn-footer-accent);
+	border-radius: 0 var(--pt-soft-radius, 6px) var(--pt-soft-radius, 6px) 0;
+	transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.blogsy-news-newsletter__btn:hover {
+	filter: brightness(1.08);
+}
+
+.blogsy-news-newsletter__msg {
+	margin: 10px 0 0;
+	min-height: 1.1em;
+	font-size: 13px;
+}
+
+.blogsy-news-newsletter__msg.is-success {
+	color: #46d39a;
+}
+
+.blogsy-news-newsletter__msg.is-error {
+	color: #ff8c8c;
+}
+
+/* In-footer ad tweaks */
+.blogsy-news-footer .blogsy-ad--footer {
+	margin-top: 2.6rem;
+	padding-top: 1.8rem;
+	border-top: 1px solid var(--bn-footer-border);
+}
+
+.blogsy-news-footer .blogsy-ad__label {
+	color: rgba(20, 22, 28, 0.42);
+}
+
+/* Bottom bar */
+.blogsy-news-footer__bottom {
+	padding: 1.5rem 0;
+	background: var(--bn-footer-bg-alt);
+	border-top: 1px solid var(--bn-footer-border);
+}
+
+.blogsy-news-footer__bottom-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.blogsy-news-footer__copyright {
+	margin: 0;
+	font-size: 13.5px;
+}
+
+.blogsy-news-footer__bottom-menu {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.blogsy-news-footer__bottom-menu a {
+	color: var(--bn-footer-text);
+	font-size: 13.5px;
+	transition: color 0.2s ease;
+}
+
+.blogsy-news-footer__bottom-menu a:hover {
+	color: var(--bn-footer-accent);
+}
+
+/* Footer accessibility focus */
+.blogsy-news-footer a:focus-visible,
+.blogsy-news-newsletter__input:focus-visible,
+.blogsy-news-newsletter__btn:focus-visible,
+.blogsy-news-back-to-top:focus-visible {
+	outline: 2px solid var(--pt-accent-color, #e93314);
+	outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Back-to-top button
+   -------------------------------------------------------------------------- */
+
+.blogsy-news-back-to-top {
+	position: fixed;
+	right: 22px;
+	bottom: 22px;
+	z-index: 9990;
+	display: grid;
+	place-items: center;
+	width: 46px;
+	height: 46px;
+	color: #fff;
+	cursor: pointer;
+	background: var(--pt-accent-color, #e93314);
+	border: 0;
+	border-radius: var(--pt-soft-radius, 8px);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(16px);
+	transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, filter 0.2s ease;
+}
+
+.blogsy-news-back-to-top.is-visible {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.blogsy-news-back-to-top:hover {
+	filter: brightness(1.1);
+	transform: translateY(-3px);
+}
+
+/* --------------------------------------------------------------------------
+   5. Responsive
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 1024px) {
+	.blogsy-news-footer__grid {
+		grid-template-columns: 1fr 1fr;
+		gap: 2.4rem 2.6rem;
+	}
+
+	.blogsy-news-footer__brand {
+		grid-column: 1 / -1;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.blogsy-news-footer__main {
+		padding: 3.4rem 0 2.2rem;
+	}
+
+	.blogsy-news-footer__grid {
+		grid-template-columns: 1fr;
+		gap: 2.2rem;
+	}
+
+	.blogsy-news-footer__bottom-inner {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.blogsy-news-newsletter__field {
+		flex-wrap: wrap;
+	}
+
+	.blogsy-news-newsletter__input {
+		border-right: 1px solid var(--bn-footer-border);
+		border-radius: var(--pt-soft-radius, 6px);
+		margin-bottom: 8px;
+	}
+
+	.blogsy-news-newsletter__btn {
+		width: 100%;
+		border-radius: var(--pt-soft-radius, 6px);
+	}
+
+	.blogsy-news-back-to-top {
+		right: 16px;
+		bottom: 16px;
+		width: 42px;
+		height: 42px;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   6. Top bar extras (quick links + social handles)
+   -------------------------------------------------------------------------- */
+
+/* Let our block sit on the right of the parent theme's top bar. */
+.has-blogsy-news-topbar-extras .pt-container {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.4rem 1.25rem;
+}
+
+.blogsy-news-topbar-extras {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.5rem 1.25rem;
+	margin-left: auto;
+	font-size: 0.8125rem;
+	line-height: 1.2;
+}
+
+/* Quick links. */
+.blogsy-news-topbar-links .blogsy-news-topbar-menu {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.blogsy-news-topbar-links .blogsy-news-topbar-menu > li {
+	margin: 0;
+	line-height: 1.2;
+}
+
+.blogsy-news-topbar-links .blogsy-news-topbar-menu > li + li {
+	margin-left: 0.85rem;
+	padding-left: 0.85rem;
+	border-left: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.blogsy-news-topbar-links .blogsy-news-topbar-menu > li > a {
+	color: inherit;
+	opacity: 0.92;
+	text-decoration: none;
+	transition: opacity 0.2s ease;
+}
+
+.blogsy-news-topbar-links .blogsy-news-topbar-menu > li > a:hover,
+.blogsy-news-topbar-links .blogsy-news-topbar-menu > li > a:focus {
+	opacity: 1;
+	text-decoration: underline;
+}
+
+/* Social handles. */
+.blogsy-news-topbar-socials {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.blogsy-news-topbar-socials > li {
+	margin: 0;
+}
+
+.blogsy-news-topbar-socials > li > a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	color: inherit;
+	background: rgba(255, 255, 255, 0.16);
+	transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.blogsy-news-topbar-socials > li > a:hover,
+.blogsy-news-topbar-socials > li > a:focus {
+	background: rgba(255, 255, 255, 0.32);
+	transform: translateY(-1px);
+}
+
+.blogsy-news-topbar-socials svg {
+	display: block;
+}
+
+/* Self-rendered fallback strip (only used if no parent top bar is found). */
+.blogsy-news-topbar-fallback {
+	background: var(--pt-accent-color, #e93314);
+	color: #fff;
+	padding: 0.45rem 0;
+}
+
+.blogsy-news-topbar-fallback .pt-container {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.blogsy-news-topbar-fallback .blogsy-news-topbar-extras {
+	margin-left: 0;
+}
+
+/* Keep things tidy on smaller screens: drop the text links, keep socials. */
+@media screen and (max-width: 782px) {
+	.blogsy-news-topbar-links {
+		display: none;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   7. Dynamic content pages (FAQ, Contact, Location, About stats)
+   -------------------------------------------------------------------------- */
+
+/* About — live stats */
+.blogsy-news-stats {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin: 1.75rem 0;
+}
+
+.blogsy-news-stats__item {
+	flex: 1 1 140px;
+	text-align: center;
+	padding: 1.25rem 1rem;
+	border-radius: var(--pt-soft-radius, 10px);
+	background: rgba(233, 51, 20, 0.06);
+	border: 1px solid rgba(233, 51, 20, 0.12);
+}
+
+.blogsy-news-stats__num {
+	display: block;
+	font-size: 2rem;
+	font-weight: 800;
+	line-height: 1.1;
+	color: var(--pt-accent-color, #e93314);
+}
+
+.blogsy-news-stats__label {
+	display: block;
+	margin-top: 0.35rem;
+	font-size: 0.85rem;
+	opacity: 0.8;
+}
+
+/* FAQ accordion */
+.blogsy-news-faq {
+	margin: 1.5rem 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.blogsy-news-faq__item {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.blogsy-news-faq__q {
+	cursor: pointer;
+	list-style: none;
+	padding: 1rem 2.25rem 1rem 0;
+	position: relative;
+	font-weight: 700;
+}
+
+.blogsy-news-faq__q::-webkit-details-marker {
+	display: none;
+}
+
+.blogsy-news-faq__q::after {
+	content: "+";
+	position: absolute;
+	right: 0.25rem;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 1.4rem;
+	line-height: 1;
+	color: var(--pt-accent-color, #e93314);
+	transition: transform 0.2s ease;
+}
+
+.blogsy-news-faq__item[open] .blogsy-news-faq__q::after {
+	content: "–";
+}
+
+.blogsy-news-faq__a {
+	padding: 0 0 1rem;
+	opacity: 0.9;
+}
+
+/* Contact form + details */
+.blogsy-news-contact__details,
+.blogsy-news-location__details {
+	list-style: none;
+	margin: 0 0 1.5rem;
+	padding: 0;
+}
+
+.blogsy-news-contact__details > li,
+.blogsy-news-location__details > li {
+	margin: 0 0 0.5rem;
+}
+
+.blogsy-news-contact__form p {
+	margin: 0 0 1rem;
+}
+
+.blogsy-news-contact__form label {
+	display: block;
+	margin-bottom: 0.35rem;
+	font-weight: 600;
+}
+
+.blogsy-news-contact__form input,
+.blogsy-news-contact__form textarea {
+	width: 100%;
+	padding: 0.7rem 0.9rem;
+	border: 1px solid rgba(0, 0, 0, 0.18);
+	border-radius: var(--pt-soft-radius, 6px);
+	font: inherit;
+	background: #fff;
+}
+
+.blogsy-news-contact__form input:focus,
+.blogsy-news-contact__form textarea:focus {
+	outline: none;
+	border-color: var(--pt-accent-color, #e93314);
+	box-shadow: 0 0 0 3px rgba(233, 51, 20, 0.15);
+}
+
+.blogsy-news-contact__btn {
+	display: inline-block;
+	padding: 0.75rem 1.5rem;
+	border: 0;
+	border-radius: var(--pt-soft-radius, 6px);
+	background: var(--pt-accent-color, #e93314);
+	color: #fff;
+	font-weight: 700;
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blogsy-news-contact__btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 18px rgba(233, 51, 20, 0.22);
+}
+
+.blogsy-news-contact__msg {
+	padding: 0.85rem 1.1rem;
+	border-radius: var(--pt-soft-radius, 6px);
+	margin-bottom: 1.25rem;
+}
+
+.blogsy-news-contact__msg.is-success {
+	background: rgba(34, 153, 84, 0.12);
+	color: #1e8449;
+}
+
+.blogsy-news-contact__msg.is-error {
+	background: rgba(233, 51, 20, 0.1);
+	color: #c0392b;
+}
+
+/* Location map */
+.blogsy-news-location__map {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	margin-bottom: 1.5rem;
+	border-radius: var(--pt-soft-radius, 10px);
+	overflow: hidden;
+}
+
+.blogsy-news-location__map iframe {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
